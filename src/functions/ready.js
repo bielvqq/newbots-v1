@@ -24,7 +24,7 @@ module.exports = class {
     const database = firebase.database();
 
     var cliente = this.client;
-
+		
     database
       .ref(`Servidores/${config.Guild}/Configuracoes`)
       .once("value", async snapshot => {
@@ -35,15 +35,15 @@ module.exports = class {
           var prefix = ";";
         }
 
-        cliente.user.setActivity(`PDK no Topo`, {
+        cliente.user.setActivity(`Prefixo: ${prefix}`, {
           type: "STREAMING",
-          url: "https://twitch.tv/bielsete_"
+          url: "https://twitch.tv/bieeuk"
         });
 
         setInterval(() => {
-          cliente.user.setActivity(`Nifetinha do Anonny`, {
+          cliente.user.setActivity(`Prefixo: ${prefix}`, {
             type: "STREAMING",
-            url: "https://twitch.tv/bielsete_"
+            url: "https://twitch.tv/bieeuk"
           });
         }, 500e3);
       });
@@ -62,7 +62,7 @@ module.exports = class {
             console.log('[EXPIRAÇÃO] BOT EXPIRANDO.');
           }
           if (diffDays < 0) {
-            cliente.users.cache.get('492846129382293537').send('BOT Expirou: ' + this.client.user.username + ' - Servidor: ' + config.Guild)
+            cliente.users.cache.get('452225239032791062').send('BOT Expirou: ' + this.client.user.username + ' - Servidor: ' + config.Guild)
             process.exit();
           }
         });
@@ -246,9 +246,9 @@ module.exports = class {
                     .setThumbnail(guild.iconURL({ dynamic: true }))
                     .setColor(config.COLOR)
                     .addFields(
-                      { name: ` Novo(a) Destaque:`, value: `${user}` },
-                      { name: ` Curtidas:`, value: `**${comparacao.numero}**`, inline: true },
-                      { name: ` Comentarios:`, value: `**${comentarios.number}**`, inline: true },
+                      { name: `${emojis.team1} Novo(a) Destaque:`, value: `${user}` },
+                      { name: `${emojis.coracao} Curtidas:`, value: `**${comparacao.numero}**`, inline: true },
+                      { name: `${emojis.mensagem} Comentarios:`, value: `**${comentarios.number}**`, inline: true },
                     )
                     .setFooter({ text: `› Atualizado em ` + moment(new Date()).format('LLL') })
 
@@ -299,7 +299,7 @@ module.exports = class {
     }
 
     setInterval(influencerman, 60 * 60 * 1000)
-
+	
     ///////////////////////////////// REGISTRO DE AUDITORIA /////////////////////////////////
     cliente.on('guildMemberUpdate', async (oldMember, newMember) => {
       const guild = newMember.guild;
@@ -416,7 +416,7 @@ module.exports = class {
                     iconURL: member.guild.iconURL({ dynamic: true }),
                     url: null
                   })
-                  .setDescription(` **BANIDO(A)**\n\n **Membro:** ${member} - \`${member.id}\``)
+                  .setDescription(`<:z_problem:1062420708958945340> **BANIDO(A)**\n\n<:z_question:1062420642110115911> **Membro:** ${member} - \`${member.id}\``)
                   .setColor('FFFFFF')
 
                 member.guild.channels.cache.get(cargoentra.val().canal_logs).send({ embeds: [ban] }).catch(err => { });
@@ -1244,7 +1244,7 @@ module.exports = class {
                       iconURL: modal.guild.iconURL({ dynamic: true }),
                       url: null
                     })
-                    .setDescription(` **BLACKLIST REMOVIDA**\n\n **Membro:** ${user} (\`${id}\`)\n **Responsável:** ${modal.user}`)
+                    .setDescription(`<:z_problem:1062420708958945340> **BLACKLIST REMOVIDA**\n\n<:z_question:1062420642110115911> **Membro:** ${user} (\`${id}\`)\n<:z_store:1062420771797999696> **Responsável:** ${modal.user}`)
                     .setColor('FFFFFF')
 
                   modal.guild.channels.cache.get(logs.val().canal_logs).send({ embeds: [remover] }).catch(err => { });
@@ -1341,7 +1341,7 @@ module.exports = class {
                     iconURL: modal.guild.iconURL({ dynamic: true }),
                     url: null
                   })
-                  .setDescription(` **BLACKLIST ADICIONADA**\n\n **Membro:** ${user} (\`${id}\`)\n **Responsável:** ${modal.user}\n\n**Motivo:** \`${reason}\``)
+                  .setDescription(`<:z_problem:1062420708958945340> **BLACKLIST ADICIONADA**\n\n<:z_question:1062420642110115911> **Membro:** ${user} (\`${id}\`)\n<:z_store:1062420771797999696> **Responsável:** ${modal.user}\n\n**Motivo:** \`${reason}\``)
                   .setColor('ffffff')
 
                 modal.guild.channels.cache.get(logs.val().canal_logs).send({ embeds: [add] }).catch(err => { });
@@ -1448,7 +1448,7 @@ module.exports = class {
                         iconURL: modal.guild.iconURL({ dynamic: true }),
                         url: null
                       })
-                      .setDescription(` **ECONOMIA TRANSFERENCIA**\n\n **Destinatário:** <@${id}> (\`${id}\`)\n **Remetente:** ${modal.user}\n\n**Quantidade:** \`${din} moeda(s)\``)
+                      .setDescription(`<:z_problem:1062420708958945340> **ECONOMIA TRANSFERENCIA**\n\n<:z_question:1062420642110115911> **Destinatário:** <@${id}> (\`${id}\`)\n<:z_store:1062420771797999696> **Remetente:** ${modal.user}\n\n**Quantidade:** \`${din} moeda(s)\``)
                       .setColor('FFFFFF')
 
                     modal.guild.channels.cache.get(logs.val().canal_logs2).send({ embeds: [ban] }).catch(err => { });
@@ -1507,7 +1507,7 @@ module.exports = class {
                     iconURL: modal.guild.iconURL({ dynamic: true }),
                     url: null
                   })
-                  .setDescription(` **PERMISSÕES ADICIONADAS**\n\n **Membro:**\n**+** <@${id}> - \`${id}\`\n **Responsável:** ${modal.user}`)
+                  .setDescription(`<:z_problem:1062420708958945340> **PERMISSÕES ADICIONADAS**\n\n<:z_question:1062420642110115911> **Membro:**\n**+** <@${id}> - \`${id}\`\n<:z_store:1062420771797999696> **Responsável:** ${modal.user}`)
                   .setColor('ffffff')
 
                 modal.guild.channels.cache.get(logs.val().canal_logs).send({ embeds: [ban] }).catch(err => { });
@@ -1557,7 +1557,7 @@ module.exports = class {
                       iconURL: modal.guild.iconURL({ dynamic: true }),
                       url: null
                     })
-                    .setDescription(` **PERMISSÕES REMOVIDAS**\n\n **Membro:**\n**+** <@${id}> - \`${id}\`\n **Responsável:** ${modal.user}`)
+                    .setDescription(`<:z_problem:1062420708958945340> **PERMISSÕES REMOVIDAS**\n\n<:z_question:1062420642110115911> **Membro:**\n**+** <@${id}> - \`${id}\`\n<:z_store:1062420771797999696> **Responsável:** ${modal.user}`)
                     .setColor('ffffff')
 
                   modal.guild.channels.cache.get(logs.val().canal_logs).send({ embeds: [ban] }).catch(err => { });
