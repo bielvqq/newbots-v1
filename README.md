@@ -4,7 +4,8 @@ Por ser uma versão antiga da minha empresa NewBots, decidi liberar a todos meus
 
 # Utilização
 
-Neste bot utilizei o Realtime Firebase, ou seja, para funcionar vocês vão ter que criar uma conta e uma database lá
-Alterações de emojis é na emojis.json, juntamente com as imagens do painel em imgur.json
+- Neste bot utilizei o Realtime Firebase, ou seja, para funcionar vocês vão ter que criar uma conta e uma database, no caso a database é inserida na firebase.json com as informações que estão sendo pedidas lá.
+  
+- Alterações de emojis é na emojis.json, juntamente com as imagens do painel em imgur.json
 
 - Lembrando que este código é uma versão antiga e totalmente desorganizada, não me responsabilizo por erros que possam ocorrer no mesmo.
