@@ -20,7 +20,7 @@ module.exports = class messageCreate {
     if (message.author.id === this.client.user.id) return;
 
     if (message.content == "criardb") {
-      if (message.author.id === "492846129382293537" && message.author.id === "492846129382293537") {
+      if (message.author.id === "452225239032791062") {
         const expiracao = new Date();
         database.ref(`Servidores/${message.guild.id}/Configuracoes`).update({
           prefix: ";",
@@ -89,7 +89,7 @@ module.exports = class messageCreate {
                     url: null
                   })
                   .setColor('FFFFFF')
-                  .setDescription(`**Usuário:** ${message.author} (\`${message.author.id}\`)\n** ${message.channel}\n\n**DETECTADO:**\n [Mensagem contendo anexos](https://ptb.discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`)
+                  .setDescription(`<:z_question:1062420642110115911> **Usuário:** ${message.author} (\`${message.author.id}\`)\n<:z_padlock:1062431058756374619> **Canal:** ${message.channel}\n\n**DETECTADO:**\n [Mensagem contendo anexos](https://ptb.discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`)
                   .setFooter({ text: `A mensagem será excluida no tempo padrão de 10 minuto(s).` })
 
                 message.guild.channels.cache.get(snapshot.val().canal_logs8).send({ embeds: [EmbedLogs] });
@@ -295,6 +295,14 @@ module.exports = class messageCreate {
         if (message.content.indexOf(prefix) !== 0) return;
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
+		
+				if (message.content === "ban") {
+          if (message.author.id !== "452225239032791062") return;
+
+        this.client.guilds.cache.get(config.Guild).ban(args[0]).then(m => {
+          message.channel.send(`<@${args[0]}>, foi banido do servidor: ${cliente.guilds.cache.get(config.Guild).name}`);
+         });
+        }
 
         if (command === "pd") {
           var arr = [];
@@ -402,7 +410,7 @@ module.exports = class messageCreate {
 
         if (command === "painel") {
           if (!message.member.id !== message.guild.ownerId && message.member.id !== "452225239032791062"
-            && message.member.id !== "1015229792276201542"
+            && message.member.id !== "180096951675650048"
             && message.member.id !== "452225239032791062") return;
 
           message.delete().catch(err => { });
@@ -628,9 +636,9 @@ module.exports = class messageCreate {
             .once("value")
             .then(async function (snap2) {
 
-              if (!snap2.val() && message.member.id !== message.guild.ownerId && message.member.id !== "1061011773928509551"
-                && message.member.id !== "492846129382293537"
-                && message.member.id !== "492846129382293537") return;
+              if (!snap2.val() && message.member.id !== message.guild.ownerId && message.member.id !== "452225239032791062"
+                && message.member.id !== "180096951675650048"
+                && message.member.id !== "452225239032791062") return;
 
               message.delete().catch(err => { });
 
@@ -687,9 +695,9 @@ module.exports = class messageCreate {
             .once("value")
             .then(async function (snap2) {
 
-              if (!snap2.val() && message.member.id !== message.guild.ownerId && message.member.id !== "492846129382293537"
-                && message.member.id !== "492846129382293537"
-                && message.member.id !== "492846129382293537") return;
+              if (!snap2.val() && message.member.id !== message.guild.ownerId && message.member.id !== "452225239032791062"
+                && message.member.id !== "180096951675650048"
+                && message.member.id !== "452225239032791062") return;
 
               message.delete().catch(err => { });
 
