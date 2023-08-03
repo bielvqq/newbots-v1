@@ -76,9 +76,9 @@ module.exports = class interactionCreate {
     //////////////////////////////// COMANDOS GERAIS ///////////////////////////////
 
     if (interaction.commandName === 'painel') {
-      if (interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "492846129382293537"
-        && interaction.member.id !== "447147188120846345"
-        && interaction.member.id !== "1073233249494642759") {
+      if (interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
+        && interaction.member.id !== "816073490872008725"
+        && interaction.member.id !== "452225239032791062") {
         interaction.reply({ embeds: [Error], ephemeral: true });
         return;
       }
@@ -93,7 +93,7 @@ module.exports = class interactionCreate {
             var prefix = ";";
 
             database.ref(`Servidores/${interaction.guild.id}/Configuracoes`).update({
-              prefix: "/",
+              prefix: ";",
             });
           }
 
@@ -325,9 +325,9 @@ module.exports = class interactionCreate {
         .once("value")
         .then(async function (snap2) {
 
-          if (!snap2.val() && interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "692407609814286468"
-            && interaction.member.id !== "492846129382293537"
-            && interaction.member.id !== "492846129382293537") {
+          if (!snap2.val() && interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
+            && interaction.member.id !== "816073490872008725"
+            && interaction.member.id !== "452225239032791062") {
             interaction.reply({ embeds: [Error], ephemeral: true })
             return;
           }
@@ -1422,7 +1422,7 @@ module.exports = class interactionCreate {
                             iconURL: interaction.guild.iconURL({ dynamic: true }),
                             url: null
                           })
-                          .setDescription(` **Responsável:** ${interaction.user} - \`${interaction.user.id}\``)
+                          .setDescription(`<:z_question:1062420642110115911> **Responsável:** ${interaction.user} - \`${interaction.user.id}\``)
                           .setColor('FFFFFF')
 
                         const row = new MessageActionRow()
@@ -1459,7 +1459,7 @@ module.exports = class interactionCreate {
                             iconURL: interaction.guild.iconURL({ dynamic: true }),
                             url: null
                           })
-                          .setDescription(` **Responsável:** ${interaction.user} - \`${interaction.user.id}\``)
+                          .setDescription(`<:z_question:1062420642110115911> **Responsável:** ${interaction.user} - \`${interaction.user.id}\``)
                           .setColor('FFFFFF')
 
                         const row = new MessageActionRow()
@@ -1928,7 +1928,7 @@ module.exports = class interactionCreate {
                 interaction.followUp({ embeds: [Embed2], ephemeral: true });
 
                 setTimeout(async () => {
-                  await cliente.channels.cache.get('1088906271555584080')({ files: [foto] }).then(async m => {
+                  await cliente.channels.cache.get('1061082782933196871').send({ files: [foto] }).then(async m => {
                     await database.ref(`Servidores/${interaction.guild.id}/Banners`).update({ barrinha: m.attachments.first().url });
                   });
                 }, 1000);
@@ -3907,7 +3907,7 @@ module.exports = class interactionCreate {
                                   url: null
                                 })
                                 .setColor('FFFFFF')
-                                .setDescription(` **RECRUTAMENTO CONCLUIDO**\n\n **Membro(s):** <@${chn.topic}>\n **Responsável:** ${interaction.user}\n\n**CARGOS:**\n${msgArr}`)
+                                .setDescription(`<:z_problem:1062420708958945340> **RECRUTAMENTO CONCLUIDO**\n\n<:z_question:1062420642110115911> **Membro(s):** <@${chn.topic}>\n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}\n\n**CARGOS:**\n${msgArr}`)
                                 .setFooter({ text: `${interaction.user.tag} já recrutou 1 membro(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                               database.ref(`Servidores/${interaction.guild.id}/Recrutamento/ADM/${interaction.user.id}`).update({ count: 1 })
@@ -3964,7 +3964,7 @@ module.exports = class interactionCreate {
                                   url: null
                                 })
                                 .setColor('FFFFFF')
-                                .setDescription(` **RECRUTAMENTO CONCLUIDO**\n\n **Membro(s):** <@${chn.topic}>\n **Responsável:** ${interaction.user}\n\n**CARGOS:**\n${msgArr}`)
+                                .setDescription(`<:z_problem:1062420708958945340> **RECRUTAMENTO CONCLUIDO**\n\n<:z_question:1062420642110115911> **Membro(s):** <@${chn.topic}>\n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}\n\n**CARGOS:**\n${msgArr}`)
                                 .setFooter({ text: `${interaction.user.tag} já recrutou ${countz} membro(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                               interaction.guild.channels.cache.get(snapshot1.val().canal_logs7).send({ embeds: [Logs] })
@@ -4525,7 +4525,7 @@ module.exports = class interactionCreate {
                                       url: null
                                     })
                                     .setColor('FFFFFF')
-                                    .setDescription(` **MIGRAÇÃO CONCLUIDA**\n\n **Membro(s):** <@${chn.topic}> - ${msg2}\n **Responsável:** ${interaction.user}\n**URL:** ${snapshot4.val().servidor}\n\n**CARGOS:**\n${msgArr}`)
+                                    .setDescription(`<:z_problem:1062420708958945340> **MIGRAÇÃO CONCLUIDA**\n\n<:z_question:1062420642110115911> **Membro(s):** <@${chn.topic}> - ${msg2}\n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}\n<:z_padlock:1062431058756374619> **URL:** ${snapshot4.val().servidor}\n\n**CARGOS:**\n${msgArr}`)
                                     .setFooter({ text: `${interaction.user.tag} já migrou 1 membro(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                                   database.ref(`Servidores/${interaction.guild.id}/Migracao/ADM/${interaction.user.id}`).update({ count: 1 })
@@ -4602,7 +4602,7 @@ module.exports = class interactionCreate {
                                       url: null
                                     })
                                     .setColor('FFFFFF')
-                                    .setDescription(` **MIGRAÇÃO CONCLUIDA**\n\n **Membro(s):** <@${chn.topic}> - ${msg2}\n **Responsável:** ${interaction.user}\n<:z_padlock:1062431058756374619> **URL:** ${snapshot4.val().servidor}\n\n**CARGOS:**\n${msgArr}`)
+                                    .setDescription(`<:z_problem:1062420708958945340> **MIGRAÇÃO CONCLUIDA**\n\n<:z_question:1062420642110115911> **Membro(s):** <@${chn.topic}> - ${msg2}\n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}\n<:z_padlock:1062431058756374619> **URL:** ${snapshot4.val().servidor}\n\n**CARGOS:**\n${msgArr}`)
                                     .setFooter({ text: `${interaction.user.tag} já migrou ${countz} membro(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                                   interaction.guild.channels.cache.get(snapshot1.val().canal_logs6).send({ embeds: [Logs] })
@@ -4944,7 +4944,7 @@ module.exports = class interactionCreate {
               .then(async function (snap2) {
 
                 if (!snap2.val() && interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
-                  && interaction.member.id !== "1015229792276201542"
+                  && interaction.member.id !== "816073490872008725"
                   && interaction.member.id !== "452225239032791062") {
                   interaction.reply({ embeds: [Error], ephemeral: true })
                   return;
@@ -5783,7 +5783,7 @@ module.exports = class interactionCreate {
                               url: null
                             })
                             .setColor('FFFFFF')
-                            .setDescription(`**SUPORTE RESOLVIDO**\n\n**Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n**Responsável:** ${interaction.user}`)
+                            .setDescription(`<:z_problem:1062420708958945340> **SUPORTE RESOLVIDO**\n\n<:z_question:1062420642110115911> **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}`)
                             .setFooter({ text: `${interaction.user.tag} já resolveu 1 suporte(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                           interaction.guild.channels.cache.get(logs.val().canal_logs4).send({ embeds: [Logs] })
@@ -5800,7 +5800,7 @@ module.exports = class interactionCreate {
                               url: null
                             })
                             .setColor('FFFFFF')
-                            .setDescription(` **SUPORTE RESOLVIDO**\n\n **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n **Responsável:** ${interaction.user}`)
+                            .setDescription(`<:z_problem:1062420708958945340> **SUPORTE RESOLVIDO**\n\n<:z_question:1062420642110115911> **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}`)
                             .setFooter({ text: `${interaction.user.tag} já resolveu ${countz} suporte(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                           interaction.guild.channels.cache.get(logs.val().canal_logs4).send({ embeds: [Logs] })
@@ -6049,7 +6049,7 @@ module.exports = class interactionCreate {
                 interaction.followUp({ content: `A print foi anexada a verificação com sucesso.`, ephemeral: true }).catch(err => { });
 
                 setTimeout(async () => {
-                  await cliente.channels.cache.get('1099392208383266857')({ files: [foto] }).then(async m => {
+                  await cliente.channels.cache.get('1050979486633574480').send({ files: [foto] }).then(async m => {
                     await database.ref(`Servidores/${interaction.guild.id}/Verificacao/${chn.topic}`).update({ imagem: m.attachments.first().url })
                   });
                 }, 1000);
@@ -6111,7 +6111,7 @@ module.exports = class interactionCreate {
                               url: null
                             })
                             .setColor('FFFFFF')
-                            .setDescription(` **VERIFICAÇÃO CONCLUIDA**\n\n **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n **Responsável:** ${interaction.user}`)
+                            .setDescription(`<:z_problem:1062420708958945340> **VERIFICAÇÃO CONCLUIDA**\n\n<:z_question:1062420642110115911> **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}`)
                             .setFooter({ text: `${interaction.user.tag} já verificou 1 membro(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                           const row2 = new MessageActionRow().addComponents(
@@ -6135,14 +6135,14 @@ module.exports = class interactionCreate {
                               url: null
                             })
                             .setColor('FFFFFF')
-                            .setDescription(` **VERIFICAÇÃO CONCLUIDA**\n\n **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n **Responsável:** ${interaction.user}`)
+                            .setDescription(`<:z_problem:1062420708958945340> **VERIFICAÇÃO CONCLUIDA**\n\n<:z_question:1062420642110115911> **Membro:** <@${chn.topic}> (\`${chn.topic}\`) \n<:z_store:1062420771797999696> **Responsável:** ${interaction.user}`)
                             .setFooter({ text: `${interaction.user.tag} já verificou ${countz} membro(s).`, iconURL: interaction.user.avatarURL({ dynamic: true }) })
 
                           const row2 = new MessageActionRow().addComponents(
                             new MessageButton()
                               .setStyle('LINK')
                               .setLabel('Print da verificação')
-                              .setURL(`${verificar.val().imagem == undefined ? "https://cdn.discordapp.com/attachments/" : verificar.val().imagem}`)
+                              .setURL(`${verificar.val().imagem == undefined ? "https://tm.ibxk.com.br/2022/05/26/26232122827007.jpg" : verificar.val().imagem}`)
                           )
 
                           interaction.guild.channels.cache.get(logs.val().canal_logs3).send({ embeds: [Logs], components: [row2] })
@@ -6183,7 +6183,7 @@ module.exports = class interactionCreate {
 
                 var z = await fetch(`https://discord.com/api/v9/users/${interaction.user.id}/profile`, {
                   "headers": {
-                    "authorization": "MTU4MzgyMzgxNDYyNDU0Mjcz.GqcBIt.Q1mFWE1SzUCQ0MlCwAWELTkPeS5g1gmCKp6RU4",
+                    "authorization": "alguma token",
                   },
                   "body": null,
                   "method": "GET"
@@ -6215,7 +6215,7 @@ module.exports = class interactionCreate {
                       url: null
                     })
                     .setColor('FFFFFF')
-                    .setDescription(` **Usuário:** ${interaction.user} - \`${interaction.user.id}\``)
+                    .setDescription(`<:z_question:1062420642110115911> **Usuário:** ${interaction.user} - \`${interaction.user.id}\``)
 
                   interaction.guild.channels.cache.get(snapshot.val().canal_logs9).send({ embeds: [Logs] });
 
@@ -6417,7 +6417,7 @@ module.exports = class interactionCreate {
                     iconURL: interaction.guild.iconURL({ dynamic: true }),
                     url: null
                   })
-                  .setDescription(` **REGISTRO EFETUADO**\n **Registrado(a):** ${interaction.user} (\`${interaction.user.id}\`)`)
+                  .setDescription(`<:z_problem:1062420708958945340> **REGISTRO EFETUADO**\n<:z_question:1062420642110115911> **Registrado(a):** ${interaction.user} (\`${interaction.user.id}\`)`)
                   .setColor('FFFFFF')
 
                 interaction.guild.channels.cache.get(snapshot.val().canal_logs10).send({ embeds: [EmbedExemplo] }).catch(err => { });
@@ -6468,7 +6468,7 @@ module.exports = class interactionCreate {
                     iconURL: interaction.guild.iconURL({ dynamic: true }),
                     url: null
                   })
-                  .setDescription(` **REGISTRO EFETUADO**\n **Registrado(a):** ${interaction.user} (\`${interaction.user.id}\`)`)
+                  .setDescription(`<:z_problem:1062420708958945340> **REGISTRO EFETUADO**\n<:z_question:1062420642110115911> **Registrado(a):** ${interaction.user} (\`${interaction.user.id}\`)`)
                   .setColor('FFFFFF')
 
                 interaction.guild.channels.cache.get(snapshot.val().canal_logs10).send({ embeds: [EmbedExemplo] }).catch(err => { });
@@ -6518,7 +6518,7 @@ module.exports = class interactionCreate {
 
           if (customId === 'inicio') {
             if (interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
-              && interaction.member.id !== "1015229792276201542"
+              && interaction.member.id !== "816073490872008725"
               && interaction.member.id !== "452225239032791062") {
               interaction.reply({ embeds: [Error], ephemeral: true });
               return;
@@ -6689,7 +6689,7 @@ module.exports = class interactionCreate {
               .once("value", snap2 => {
 
                 if (!snap2.val() && interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
-                  && interaction.member.id !== "1015229792276201542"
+                  && interaction.member.id !== "816073490872008725"
                   && interaction.member.id !== "452225239032791062") {
                   interaction.reply({ embeds: [Error], ephemeral: true })
                   return;
@@ -7032,7 +7032,7 @@ module.exports = class interactionCreate {
                           iconURL: interaction.guild.iconURL({ dynamic: true }),
                           url: null
                         })
-                        .setDescription(` **Carteiras** resetadas por ${interaction.user} (\`${interaction.user.id}\`)`)
+                        .setDescription(`<:z_problem:1062420708958945340> **Carteiras** resetadas por ${interaction.user} (\`${interaction.user.id}\`)`)
                         .setColor('FFFFFF')
 
                       interaction.guild.channels.cache.get(logs.val().canal_logs2).send({ embeds: [reset1] }).catch(() => { });
@@ -7127,7 +7127,7 @@ module.exports = class interactionCreate {
                           iconURL: interaction.guild.iconURL({ dynamic: true }),
                           url: null
                         })
-                        .setDescription(` **Blacklist Geral** resetada por ${interaction.user} (\`${interaction.user.id}\`)`)
+                        .setDescription(`<:z_problem:1062420708958945340> **Blacklist Geral** resetada por ${interaction.user} (\`${interaction.user.id}\`)`)
                         .setColor('FFFFFF')
 
                       interaction.guild.channels.cache.get(logs.val().canal_logs).send({ embeds: [reset1] }).catch(() => { });
@@ -7174,7 +7174,7 @@ module.exports = class interactionCreate {
                           iconURL: interaction.guild.iconURL({ dynamic: true }),
                           url: null
                         })
-                        .setDescription(` **Permissões da Blacklist Geral** foram resetadas por ${interaction.user} (\`${interaction.user.id}\`)`)
+                        .setDescription(`<:z_problem:1062420708958945340> **Permissões da Blacklist Geral** foram resetadas por ${interaction.user} (\`${interaction.user.id}\`)`)
                         .setColor('FFFFFF')
 
                       interaction.guild.channels.cache.get(logs.val().canal_logs).send({ embeds: [reset2] }).catch(() => { });
@@ -7222,7 +7222,7 @@ module.exports = class interactionCreate {
                           iconURL: interaction.guild.iconURL({ dynamic: true }),
                           url: null
                         })
-                        .setDescription(` **Influencers** resetada por ${interaction.user} (\`${interaction.user.id}\`)`)
+                        .setDescription(`<:z_problem:1062420708958945340> **Influencers** resetada por ${interaction.user} (\`${interaction.user.id}\`)`)
                         .setColor('FFFFFF')
 
                       interaction.guild.channels.cache.get(logs.val().canal_logs5).send({ embeds: [reset1] }).catch(() => { });
@@ -7785,7 +7785,7 @@ module.exports = class interactionCreate {
               .once("value", snap2 => {
 
                 if (!snap2.val() && interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
-                  && interaction.member.id !== "1015229792276201542"
+                  && interaction.member.id !== "816073490872008725"
                   && interaction.member.id !== "452225239032791062") {
                   interaction.reply({ embeds: [Error], ephemeral: true })
                   return;
@@ -7816,7 +7816,7 @@ module.exports = class interactionCreate {
               .once("value", snap2 => {
 
                 if (!snap2.val() && interaction.member.id !== interaction.guild.ownerId && interaction.member.id !== "452225239032791062"
-                  && interaction.member.id !== "1015229792276201542"
+                  && interaction.member.id !== "816073490872008725"
                   && interaction.member.id !== "452225239032791062") {
                   interaction.reply({ embeds: [Error], ephemeral: true })
                   return;
